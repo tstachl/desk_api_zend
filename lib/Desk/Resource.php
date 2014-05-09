@@ -187,7 +187,7 @@ class Desk_Resource
    */
   public function search($params)
   {
-    if (is_string($params)) { $params = ['q' => $params]; }
+    if (is_string($params)) { $params = array('q' => $params); }
 
     $uri = Zend_Uri::factory($this->_client->getEndpoint() . $this->_cleanBaseUrl() . '/search');
     $uri->setQuery($params);
@@ -244,7 +244,8 @@ class Desk_Resource
    */
   public function getHref()
   {
-    return $this->_links->getSelf()['href'];
+    $self = $this->_links->getSelf();
+    return $self['href'];
   }
 
   /**
@@ -266,7 +267,8 @@ class Desk_Resource
    */
   public function getResourceType()
   {
-    return $this->_links->getSelf()['class'];
+    $self = $this->_links->getSelf();
+    return $self['class'];
   }
 
   /**
@@ -279,7 +281,10 @@ class Desk_Resource
     if (!array_key_exists('page', $this->queryParams())) {
       $this->_execute();
     }
-    return $this->queryParams()['page'];
+
+    $query = $this->queryParams();
+
+    return $query['page'];
   }
 
   /**
@@ -304,7 +309,10 @@ class Desk_Resource
     if (!array_key_exists('per_page', $this->queryParams())) {
       $this->_execute();
     }
-    return $this->queryParams()['per_page'];
+
+    $query = $this->queryParams();
+
+    return $query['per_page'];
   }
 
   /**
@@ -453,7 +461,8 @@ class Desk_Resource
   {
     $this->_links    = new Varien_Object(self::arrayRemove($data, '_links'));
     $this->_embedded = new Varien_Object(self::arrayRemove($data, '_embedded'));
-    $this->_data     = (new Varien_Object($data))->setOrigData();
+    $this->_data     = new Varien_Object($data);
+    $this->_data->setOrigData();
     $this->_loaded   = $loaded;
     return $this;
   }
@@ -466,7 +475,8 @@ class Desk_Resource
   private function _cleanBaseUrl()
   {
     $pattern = array('/\/search$/', '/\/\d+$/');
-    return preg_replace($pattern, '', explode('?', $this->getHref())[0]);
+    $explode = explode('?', $this->getHref());
+    return preg_replace($pattern, '', $explode[0]);
   }
 
   /**

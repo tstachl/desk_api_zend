@@ -101,10 +101,10 @@ class DeskTest_Adapter extends Zend_Http_Client_Adapter_Curl
 
       $file = $this->getFixtureFilename();
       if (!file_exists(dirname($file))) { mkdir(dirname($file), 0777, true); }
-      yaml_emit_file($file, [
+      yaml_emit_file($file, array(
         'request' => preg_replace('/^Authorization:.*\r?\n/m', '', $request),
         'response' => $this->_response
-      ]);
+      ));
 
       return $request;
     }

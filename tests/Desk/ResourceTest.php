@@ -7,7 +7,8 @@ class Desk_ResourceTest extends DeskTest_TestCase
 {
   public function testBuildSelfLink()
   {
-    $this->assertEquals('/momo', Desk_Resource::buildSelfLink('/momo')['_links']['self']['href']);
+    $links = Desk_Resource::buildSelfLink('/momo');
+    $this->assertEquals('/momo', $links['_links']['self']['href']);
   }
 
   public function testArrayRemove()
@@ -172,14 +173,15 @@ class Desk_ResourceTest extends DeskTest_TestCase
 
   public function testFilterUpdateAction()
   {
-    $customer = $this->getClient()->getCustomers()->getEntries()[0];
+    $entries  = $this->getClient()->getCustomers()->getEntries();
+    $customer = $entries[0];
     $count    = count($customer->getPhoneNumbers());
-    $number   = ['type' => 'home', 'value' => '(415) 555-1234'];
+    $number   = array('type' => 'home', 'value' => '(415) 555-1234');
 
-    $customer->update([
-      'phone_numbers' => [$number],
+    $customer->update(array(
+      'phone_numbers' => array($number),
       'phone_numbers_update_action' => 'append'
-    ]);
+    ));
 
     $new_count = count($customer->reload()->getPhoneNumbers());
 

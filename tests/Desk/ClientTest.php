@@ -47,19 +47,22 @@ class Desk_ClientTest extends DeskTest_TestCase
   public function testGet()
   {
     $response = $this->getClient()->get('/api/v2/cases/3014');
-    $this->assertEquals('Testing Quick Case', Zend_Json::decode($response->getBody())['subject']);
+    $body     = Zend_Json::decode($response->getBody());
+    $this->assertEquals('Testing Quick Case', $body['subject']);
   }
 
   public function testPost()
   {
     $response = $this->getClient()->post('/api/v2/topics', array('name' => 'Test Topic'));
-    $this->assertEquals('Test Topic', Zend_Json::decode($response->getBody())['name']);
+    $body     = Zend_Json::decode($response->getBody());
+    $this->assertEquals('Test Topic', $body['name']);
   }
 
   public function testPatch()
   {
     $response = $this->getClient()->patch('/api/v2/topics/655433', array('name' => 'Test Updated Topic'));
-    $this->assertEquals('Test Updated Topic', Zend_Json::decode($response->getBody())['name']);
+    $body     = Zend_Json::decode($response->getBody());
+    $this->assertEquals('Test Updated Topic', $body['name']);
   }
 
   public function testDelete()
@@ -77,19 +80,22 @@ class Desk_ClientTest extends DeskTest_TestCase
   public function testOauthGet()
   {
     $response = $this->getClient('oauth')->get('/api/v2/cases/3014');
-    $this->assertEquals('Testing Quick Case', Zend_Json::decode($response->getBody())['subject']);
+    $body     = Zend_Json::decode($response->getBody());
+    $this->assertEquals('Testing Quick Case', $body['subject']);
   }
 
   public function testOauthPost()
   {
     $response = $this->getClient('oauth')->post('/api/v2/topics', array('name' => 'Test Topic'));
-    $this->assertEquals('Test Topic', Zend_Json::decode($response->getBody())['name']);
+    $body     = Zend_Json::decode($response->getBody());
+    $this->assertEquals('Test Topic', $body['name']);
   }
 
   public function testOauthPatch()
   {
     $response = $this->getClient('oauth')->patch('/api/v2/topics/655435', array('name' => 'Test Updated Topic'));
-    $this->assertEquals('Test Updated Topic', Zend_Json::decode($response->getBody())['name']);
+    $body     = Zend_Json::decode($response->getBody());
+    $this->assertEquals('Test Updated Topic', $body['name']);
   }
 
   public function testOauthDelete()
