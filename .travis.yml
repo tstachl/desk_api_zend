@@ -8,13 +8,16 @@ php:
 matrix:
   allow_failures:
     - php: 5.5
+    - php: 5.3
+    - php: hhvm
 
 before_script:
+  - pecl install yaml
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev --no-interaction
 
 script:
-  - mkdir -p build/logs
+  - mkdir -p coverage
   - php vendor/bin/phpunit -c phpunit.xml.dist
 
 after_script:
