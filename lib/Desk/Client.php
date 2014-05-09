@@ -71,7 +71,7 @@ class Desk_Client extends Desk_Configuration
    *
    * @var array
    */
-  protected static $_underscoreCache = [];
+  protected static $_underscoreCache = array();
 
   /**
    * HTTP Client to be used
@@ -85,7 +85,7 @@ class Desk_Client extends Desk_Configuration
    *
    * @param  array $options options array
    */
-  public function __construct($options = [])
+  public function __construct($options = array())
   {
     // start with a clean slate
     $this->reset();
@@ -96,7 +96,7 @@ class Desk_Client extends Desk_Configuration
 
     foreach ($options as $key => $value) {
       $method = 'set' . ucfirst($key);
-      if (is_callable([$this, $method])) {
+      if (is_callable(array($this, $method))) {
         $this->$method($value);
       }
     }
@@ -120,7 +120,7 @@ class Desk_Client extends Desk_Configuration
    * @param string|array payload to post
    * @return Zend_Http_Response
    */
-  public function post($path, $params = [])
+  public function post($path, array $params)
   {
     return $this->_request('POST', $path, $params);
   }
@@ -132,7 +132,7 @@ class Desk_Client extends Desk_Configuration
    * @param string|array payload to post
    * @return Zend_Http_Response
    */
-  public function patch($path, $params = [])
+  public function patch($path, array $params)
   {
     return $this->_request('PATCH', $path, $params);
   }
@@ -162,8 +162,8 @@ class Desk_Client extends Desk_Configuration
   /**
    * Makes the magic happen!
    *
-   * @param  string $name
-   * @param  mixed  $arguments
+   * @param  string $method
+   * @param  mixed  $args
    * @return Desk_Resource
    */
   public function __call($method, $args)
@@ -211,10 +211,10 @@ class Desk_Client extends Desk_Configuration
       $token = new Zend_Oauth_Token_Access();
       $this->client = $token->setToken($creds['token'])
                             ->setTokenSecret($creds['token_secret'])
-                            ->getHttpClient([
+                            ->getHttpClient(array(
                               'consumerKey' => $creds['consumer_key'],
                               'consumerSecret' => $creds['consumer_secret']
-                            ])
+                            ))
                             ->setConfig($this->getConnectionOptions());
     } else {
       $creds = $this->getBasicAuthCredentials();

@@ -3,7 +3,7 @@
 /**
  * @covers Desk_Configuration
  */
-class Desk_ConfigurationTest extends \PHPUnit_Framework_TestCase
+class Desk_ConfigurationTest extends PHPUnit_Framework_TestCase
 {
   /**
    * @var Configuration

@@ -34,35 +34,3 @@ if (file_exists(__DIR__ . '/config.yml')) {
 } else {
   DeskTest_TestCase::setConfig(__DIR__ . '/config.example.yml');
 }
-
-
-// /**
-//  * Compilation includes configuration file
-//  */
-// define('MAGENTO_ROOT', dirname(__DIR__));
-//
-// $compilerConfig = MAGENTO_ROOT . '/includes/config.php';
-// if (file_exists($compilerConfig)) {
-//     include $compilerConfig;
-// }
-//
-// $mageFilename = MAGENTO_ROOT . '/app/Mage.php';
-// $maintenanceFile = 'maintenance.flag';
-//
-// if (!file_exists($mageFilename)) {
-//     if (is_dir('downloader')) {
-//         header("Location: downloader");
-//     } else {
-//         echo $mageFilename." was not found";
-//     }
-//     exit;
-// }
-//
-// if (file_exists($maintenanceFile)) {
-//     include_once dirname(__FILE__) . '/errors/503.php';
-//     exit;
-// }
-//
-// require_once $mageFilename;
-//
-// Mage::setIsDeveloperMode(true);

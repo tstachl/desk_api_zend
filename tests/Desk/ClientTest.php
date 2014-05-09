@@ -3,7 +3,7 @@
 /**
  * @covers Desk_Client
  */
-class Desk_ClientTest extends \DeskTest_TestCase
+class Desk_ClientTest extends DeskTest_TestCase
 {
   public function testInheritsFromConfiguration()
   {
@@ -22,7 +22,7 @@ class Desk_ClientTest extends \DeskTest_TestCase
 
   public function testOptionsOverrideDefaultsOnConstruct()
   {
-    $client = new Desk_Client(['username' => 'un']);
+    $client = new Desk_Client(array('username' => 'un'));
     $this->assertEquals('un', $client->getUsername());
   }
 
@@ -39,7 +39,7 @@ class Desk_ClientTest extends \DeskTest_TestCase
 
   public function testOptionsAllowsZendConfig()
   {
-    $config = new Zend_Config(['username' => 'un']);
+    $config = new Zend_Config(array('username' => 'un'));
     $client = new Desk_Client($config);
     $this->assertEquals('un', $client->getUsername());
   }
@@ -52,13 +52,13 @@ class Desk_ClientTest extends \DeskTest_TestCase
 
   public function testPost()
   {
-    $response = $this->getClient()->post('/api/v2/topics', ['name' => 'Test Topic']);
+    $response = $this->getClient()->post('/api/v2/topics', array('name' => 'Test Topic'));
     $this->assertEquals('Test Topic', Zend_Json::decode($response->getBody())['name']);
   }
 
   public function testPatch()
   {
-    $response = $this->getClient()->patch('/api/v2/topics/655433', ['name' => 'Test Updated Topic']);
+    $response = $this->getClient()->patch('/api/v2/topics/655433', array('name' => 'Test Updated Topic'));
     $this->assertEquals('Test Updated Topic', Zend_Json::decode($response->getBody())['name']);
   }
 
@@ -82,13 +82,13 @@ class Desk_ClientTest extends \DeskTest_TestCase
 
   public function testOauthPost()
   {
-    $response = $this->getClient('oauth')->post('/api/v2/topics', ['name' => 'Test Topic']);
+    $response = $this->getClient('oauth')->post('/api/v2/topics', array('name' => 'Test Topic'));
     $this->assertEquals('Test Topic', Zend_Json::decode($response->getBody())['name']);
   }
 
   public function testOauthPatch()
   {
-    $response = $this->getClient('oauth')->patch('/api/v2/topics/655435', ['name' => 'Test Updated Topic']);
+    $response = $this->getClient('oauth')->patch('/api/v2/topics/655435', array('name' => 'Test Updated Topic'));
     $this->assertEquals('Test Updated Topic', Zend_Json::decode($response->getBody())['name']);
   }
 
@@ -118,23 +118,23 @@ class Desk_ClientTest extends \DeskTest_TestCase
 
   public function testPatchMethodWithCurl()
   {
-    $client = new Desk_Client([
+    $client = new Desk_Client(array(
       'username' => 'un',
       'password' => 'pw',
       'endpoint' => 'https://devel.desk.com'
-    ]);
+    ));
     $client->setConnectionOptions(array_merge(
       Desk_Defaults::$connectionOptions,
-      ['adapter' => 'Zend_Http_Client_Adapter_Curl']
+      array('adapter' => 'Zend_Http_Client_Adapter_Curl')
     ));
 
-    $response = $client->patch('/api/v2/cases/3014', []);
+    $response = $client->patch('/api/v2/cases/3014', array());
     $this->assertEquals(401, $response->getStatus());
   }
 
   public function testMagic()
   {
-    $cases = $this->getClient()->getCases(['page' => 1]);
+    $cases = $this->getClient()->getCases(array('page' => 1));
     $this->assertInstanceOf('Desk_Resource', $cases);
     $this->assertEquals('/api/v2/cases?page=1', $cases->getHref());
     $this->assertEquals(1, $cases->getPage());
@@ -142,7 +142,7 @@ class Desk_ClientTest extends \DeskTest_TestCase
 
   public function testMagicCache()
   {
-    $cases = $this->getClient()->getCases(['page' => 1]);
+    $cases = $this->getClient()->getCases(array('page' => 1));
     $this->assertInstanceOf('Desk_Resource', $cases);
   }
 

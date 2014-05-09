@@ -35,7 +35,7 @@ class DeskTest_Adapter extends Zend_Http_Client_Adapter_Curl
    *
    * @var array
    */
-  protected $_connect_params = [];
+  protected $_connect_params = array();
 
   /**
    * The request method
@@ -76,10 +76,10 @@ class DeskTest_Adapter extends Zend_Http_Client_Adapter_Curl
 
   public function connect($host, $port = 80, $secure = false)
   {
-    $this->_connect_params = [$host, $port, $secure];
+    $this->_connect_params = array($host, $port, $secure);
   }
 
-  public function write($method, $uri, $httpVersion = 1.1, $headers = [], $body = '')
+  public function write($method, $uri, $httpVersion = 1.1, $headers = array(), $body = '')
   {
     $this->_method  = $method;
     $this->_uri     = $uri;
@@ -125,7 +125,7 @@ class DeskTest_Adapter extends Zend_Http_Client_Adapter_Curl
   {
     if (is_null($this->_fixture_filename)) {
       // remove auth header
-      $headers = array_merge([], $this->_headers);
+      $headers = array_merge(array(), $this->_headers);
       foreach ($headers as $idx => $header) {
         if (strpos($header, 'Authorization') !== false) {
           unset($headers[$idx]);

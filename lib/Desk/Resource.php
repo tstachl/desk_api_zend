@@ -41,7 +41,7 @@ class Desk_Resource
    *
    * @var array
    */
-  protected static $_underscoreCache = [];
+  protected static $_underscoreCache = array();
 
   /**
    * The links
@@ -85,8 +85,8 @@ class Desk_Resource
    */
   public static function buildSelfLink($link)
   {
-    if (is_string($link)) { $link = ['href' => $link]; }
-    return ['_links' => ['self' => $link]];
+    if (is_string($link)) { $link = array('href' => $link); }
+    return array('_links' => array('self' => $link));
   }
 
   /**
@@ -96,7 +96,7 @@ class Desk_Resource
    * @param  string $key   the key to unset
    * @return mixed         the value to be returned
    */
-  public static function arrayRemove(&$arr = [], $key = null)
+  public static function arrayRemove(&$arr = array(), $key = null)
   {
     if (!isset($arr[$key])) return null;
     $value = $arr[$key];
@@ -111,7 +111,7 @@ class Desk_Resource
    * @param array       $definition the resource definition
    * @param boolean     $loaded     is the current resource loaded
    */
-  public function __construct(Desk_Client $client, $definition = [], $loaded = false)
+  public function __construct(Desk_Client $client, $definition = array(), $loaded = false)
   {
     $this->_client    = $client;
     $this->_setupData($definition, $loaded);
@@ -123,7 +123,7 @@ class Desk_Resource
    * @param  array  $params the payload for the new resource
    * @return Desk_Resource
    */
-  public function create($params = [])
+  public function create($params = array())
   {
     $baseUrl  = $this->_cleanBaseUrl();
     $response = $this->_client->post($baseUrl, $params);
@@ -142,7 +142,7 @@ class Desk_Resource
    * @param  array  $params changes that should be made to this resource
    * @return Desk_Resource
    */
-  public function update($params = [])
+  public function update($params = array())
   {
     $changes = $this->_filterUpdateActions($params);
 
@@ -203,7 +203,7 @@ class Desk_Resource
    * @param  array  $options
    * @return Desk_Resource
    */
-  public function find($id, $params = [])
+  public function find($id, $params = array())
   {
     $baseUrl = $this->_cleanBaseUrl();
     $res = new Desk_Resource($this->_client, self::buildSelfLink("$baseUrl/$id"));
@@ -221,8 +221,8 @@ class Desk_Resource
    */
   public function embed($embed)
   {
-    if (is_string($embed)) { $embed = [$embed]; }
-    $this->queryParams(['embed' => implode(',', $embed)]);
+    if (is_string($embed)) { $embed = array($embed); }
+    $this->queryParams(array('embed' => implode(',', $embed)));
     return $this;
   }
 
@@ -255,7 +255,7 @@ class Desk_Resource
    */
   public function setHref($url)
   {
-    $this->_links->setSelf(['href' => $url]);
+    $this->_links->setSelf(array('href' => $url));
     return $this;
   }
 
@@ -290,7 +290,7 @@ class Desk_Resource
    */
   public function setPage($page)
   {
-    $this->queryParams(['page' => $page]);
+    $this->queryParams(array('page' => $page));
     return $this;
   }
 
@@ -315,7 +315,7 @@ class Desk_Resource
    */
   public function setPerPage($per_page)
   {
-    $this->queryParams(['per_page' => $per_page]);
+    $this->queryParams(array('per_page' => $per_page));
     return $this;
   }
 
@@ -449,7 +449,7 @@ class Desk_Resource
    * @param  array $data
    * @return Desk_Resource
    */
-  protected function _setupData($data = [], $loaded = true)
+  protected function _setupData($data = array(), $loaded = true)
   {
     $this->_links    = new Varien_Object(self::arrayRemove($data, '_links'));
     $this->_embedded = new Varien_Object(self::arrayRemove($data, '_embedded'));
@@ -497,7 +497,7 @@ class Desk_Resource
    */
   private function _filterUpdateActions($params)
   {
-    $retval = [];
+    $retval = array();
     foreach ($params as $key => $value) {
       if (strpos($key, 'update_action') !== false) {
         $retval[$key] = $value;

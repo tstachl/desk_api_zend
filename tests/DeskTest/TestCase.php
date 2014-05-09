@@ -27,7 +27,7 @@
 /**
  * Base testcase class for all DeskApi testcases.
  */
-abstract class DeskTest_TestCase extends \PHPUnit_Framework_TestCase
+abstract class DeskTest_TestCase extends PHPUnit_Framework_TestCase
 {
 
   /**
@@ -49,7 +49,7 @@ abstract class DeskTest_TestCase extends \PHPUnit_Framework_TestCase
    *
    * @var array
    */
-  public static $clients = [];
+  public static $clients = array();
 
   /**
    * Returns the specified client.
@@ -68,7 +68,7 @@ abstract class DeskTest_TestCase extends \PHPUnit_Framework_TestCase
         self::$clients[$name] = new Desk_Client(self::$config['clients'][$name]);
         self::$clients[$name]->setConnectionOptions(array_merge(
           Desk_Defaults::$connectionOptions,
-          ['adapter' => 'DeskTest_Adapter']
+          array('adapter' => 'DeskTest_Adapter')
         ));
       } else {
         self::$clients[$name] = new Desk_Client();

@@ -3,7 +3,7 @@
 /**
  * @covers Desk_Resource
  */
-class Desk_ResourceTest extends \DeskTest_TestCase
+class Desk_ResourceTest extends DeskTest_TestCase
 {
   public function testBuildSelfLink()
   {
@@ -12,9 +12,9 @@ class Desk_ResourceTest extends \DeskTest_TestCase
 
   public function testArrayRemove()
   {
-    $array = ['test' => 'test'];
+    $array = array('test' => 'test');
     Desk_Resource::arrayRemove($array, 'test');
-    $this->assertEquals([], $array);
+    $this->assertEmpty($array);
   }
 
   public function testConstructor()
@@ -25,7 +25,7 @@ class Desk_ResourceTest extends \DeskTest_TestCase
 
   public function testCreate()
   {
-    $topic = $this->getClient()->getTopics()->create(['name' => 'Test Topic']);
+    $topic = $this->getClient()->getTopics()->create(array('name' => 'Test Topic'));
     $this->assertEquals('Test Topic', $topic->getName());
   }
 
@@ -35,12 +35,12 @@ class Desk_ResourceTest extends \DeskTest_TestCase
    */
   public function testCreateFailed()
   {
-    $topic = $this->getClient()->getTopics()->create(['subject' => 'Test Topic']);
+    $topic = $this->getClient()->getTopics()->create(array('subject' => 'Test Topic'));
   }
 
   public function testUpdate()
   {
-    $topic = $this->getClient()->getTopics()->find(655433)->update(['name' => 'Test Updated Topic']);
+    $topic = $this->getClient()->getTopics()->find(655433)->update(array('name' => 'Test Updated Topic'));
     $this->assertEquals('Test Updated Topic', $topic->getName());
   }
 
@@ -50,7 +50,7 @@ class Desk_ResourceTest extends \DeskTest_TestCase
    */
   public function testUpdateFailed()
   {
-    $topic = $this->getClient()->getTopics()->find(655433)->update(['name' => 'Test Topic']);
+    $topic = $this->getClient()->getTopics()->find(655433)->update(array('name' => 'Test Topic'));
   }
 
   public function testDestroy()
@@ -60,7 +60,7 @@ class Desk_ResourceTest extends \DeskTest_TestCase
 
   public function testSearch()
   {
-    $search = $this->getClient()->getCases()->search(['status' => 'pending']);
+    $search = $this->getClient()->getCases()->search(array('status' => 'pending'));
     $this->assertInstanceOf('Desk_Resource', $search);
     $this->assertEquals('/api/v2/cases/search?status=pending', $search->getHref());
   }
@@ -79,13 +79,13 @@ class Desk_ResourceTest extends \DeskTest_TestCase
 
   public function testFindEmbed()
   {
-    $find = $this->getClient()->getCases()->find(3015, ['embed' => 'customer']);
+    $find = $this->getClient()->getCases()->find(3015, array('embed' => 'customer'));
     $this->assertEquals('Thomas', $find->getCustomer()->getFirstName());
   }
 
   public function testEmbed()
   {
-    $embed = $this->getClient()->getCases()->embed(['customer', 'assigned_user']);
+    $embed = $this->getClient()->getCases()->embed(array('customer', 'assigned_user'));
     $this->assertEquals('/api/v2/cases?embed=customer%2Cassigned_user', $embed->getHref());
     $embed = $this->getClient()->getCases()->embed('customer');
     $this->assertEquals('/api/v2/cases?embed=customer', $embed->getHref());

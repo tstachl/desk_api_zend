@@ -77,12 +77,12 @@ class Desk_Configuration
   /**
    * @var array Connection options like default headers
    */
-  protected $connectionOptions = [];
+  protected $connectionOptions = array();
 
   /**
    * @var array List of configuration options
    */
-  public static $configurationOptions = [
+  public static $configurationOptions = array(
     'consumerKey',
     'consumerSecret',
     'token',
@@ -91,7 +91,7 @@ class Desk_Configuration
     'password',
     'endpoint',
     'connectionOptions'
-  ];
+  );
 
   /**
    * Returns the current consumer key.
@@ -216,12 +216,12 @@ class Desk_Configuration
     if (is_string($endpoint) && $endpoint !== '') {
       // make sure we have a valid url
       if (filter_var($endpoint, FILTER_VALIDATE_URL) === false) {
-        throw new Desk_Exceptions_Configuration('`' . $endpoint . '` is not a valid url.');
+        throw new Desk_Exceptions_Configuration("`$endpoint' is not a valid url.");
       }
 
       // make sure we are using https protocol
       if (strpos($endpoint, 'https') !== 0) {
-        throw new Desk_Exceptions_Configuration('`' . $endpoint . '` has to use https as protocol.');
+        throw new Desk_Exceptions_Configuration("`$endpoint' has to use https as protocol.");
       }
 
       $this->endpoint = Zend_Uri::factory($endpoint);
@@ -323,12 +323,12 @@ class Desk_Configuration
    */
   protected function getOAuthCredentials()
   {
-    return [
+    return array(
       'consumer_key' => $this->consumerKey,
       'consumer_secret' => $this->consumerSecret,
       'token' => $this->token,
       'token_secret' => $this->tokenSecret
-    ];
+    );
   }
 
   /**
@@ -338,10 +338,10 @@ class Desk_Configuration
    */
   protected function getBasicAuthCredentials()
   {
-    return [
+    return array(
       'username' => $this->username,
       'password' => $this->password
-    ];
+    );
   }
 
   /**

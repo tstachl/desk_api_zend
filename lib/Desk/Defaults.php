@@ -32,7 +32,7 @@ class Desk_Defaults
   /**
    * @var Default connection options
    */
-  public static $connectionOptions = [
+  public static $connectionOptions = array(
     'maxredirects' => 10,
     'strict' => true,
     'strictredirects' => true,
@@ -43,7 +43,7 @@ class Desk_Defaults
     'keepalive' => false,
     'storeresponse' => false,
     'encodecookies' => true
-  ];
+  );
 
   /**
    * Returns an array of options.
@@ -52,7 +52,7 @@ class Desk_Defaults
    */
   public static function getOptions()
   {
-    $options = [];
+    $options = array();
 
     foreach (Desk_Configuration::$configurationOptions as $option) {
       $method = 'get' . ucfirst($option);

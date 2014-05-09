@@ -3,7 +3,7 @@
 /**
  * @covers Desk_Defaults
  */
-class Desk_DefaultsTest extends \PHPUnit_Framework_TestCase
+class Desk_DefaultsTest extends PHPUnit_Framework_TestCase
 {
 
   public function testGetOptions()
