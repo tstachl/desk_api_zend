@@ -3,16 +3,17 @@ php:
   - 5.5
   - 5.4
   - 5.3
-  - hhvm
 
 matrix:
   allow_failures:
     - php: 5.5
     - php: 5.3
-    - php: hhvm
 
 before_script:
-  - pecl install yaml
+  - wget http://pecl.php.net/get/yaml-1.1.1.tgz
+  - tar -xzf yaml-1.1.1.tgz
+  - sh -c "cd yaml-1.1.1 && phpize && ./configure && sudo make install"
+  - echo "extension=yaml.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev --no-interaction
 
