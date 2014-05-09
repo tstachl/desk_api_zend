@@ -1,0 +1,12 @@
+default_client: basic
+clients:
+  basic:
+    username: user@example.com
+    password: password
+    endpoint: https://devel.desk.com
+  oauth:
+    consumerKey: consumer_key
+    consumerSecret: consumer_secret
+    token: token
+    tokenSecret: token_secret
+    endpoint: https://devel.desk.com

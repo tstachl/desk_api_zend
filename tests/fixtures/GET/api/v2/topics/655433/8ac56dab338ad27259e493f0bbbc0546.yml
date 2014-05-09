@@ -1,0 +1,10 @@
+---
+request: "GET /api/v2/topics/655433 HTTP/1.1\r\nAccept: */*\r\nHost: devel.desk.com\r\nConnection:
+  close\r\nAccept-encoding: gzip, deflate\r\nUser-Agent: Desk.com API Client\r\n\r\n"
+response: "HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache,
+  private\r\nContent-Type: application/json; charset=utf-8\r\nDate: Fri, 09 May 2014
+  04:23:39 GMT\r\nStatus: 200 OK\r\nVary: X-AppVersion\r\nX-AppVersion: 15.99\r\nX-Frame-Options:
+  SAMEORIGIN\r\nX-Rate-Limit-Limit: 180\r\nX-Rate-Limit-Remaining: 179\r\nX-Rate-Limit-Reset:
+  21\r\nX-Request-Id: bb0ba5a6111d359b9ee5986e6beaa37f\r\nContent-Length: 402\r\nConnection:
+  Close\r\n\r\n{\"name\":\"Test Topic\",\"description\":null,\"position\":15,\"allow_questions\":true,\"in_support_center\":null,\"created_at\":\"2014-05-08T21:59:19Z\",\"updated_at\":\"2014-05-08T21:59:46Z\",\"_links\":{\"self\":{\"href\":\"/api/v2/topics/655433\",\"class\":\"topic\"},\"articles\":{\"href\":\"/api/v2/topics/655433/articles\",\"class\":\"article\"},\"translations\":{\"href\":\"/api/v2/topics/655433/translations\",\"class\":\"topic_translation\"}}}"
+...

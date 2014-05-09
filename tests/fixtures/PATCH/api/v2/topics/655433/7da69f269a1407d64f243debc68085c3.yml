@@ -1,0 +1,10 @@
+---
+request: "POST /api/v2/topics/655433 HTTP/1.1\r\nAccept: */*\r\nHost: devel.desk.com\r\nConnection:
+  close\r\nAccept-encoding: gzip, deflate\r\nContent-Type: application/json\r\nUser-Agent:
+  Desk.com API Client\r\nContent-Length: 2\r\nX-HTTP-Method-Override: PATCH\r\n\r\n[]"
+response: "HTTP/1.1 404 Not Found\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache\r\nContent-Type:
+  application/json; charset=utf-8\r\nDate: Fri, 09 May 2014 04:40:05 GMT\r\nStatus:
+  404 Not Found\r\nVary: X-AppVersion\r\nX-AppVersion: 15.99\r\nX-Frame-Options: SAMEORIGIN\r\nX-Rate-Limit-Limit:
+  180\r\nX-Rate-Limit-Remaining: 179\r\nX-Rate-Limit-Reset: 55\r\nX-Request-Id: fbc27a083389dd35b58d1b38480d2f58\r\nContent-Length:
+  32\r\nConnection: Close\r\n\r\n{\"message\":\"Resource Not Found\"}"
+...

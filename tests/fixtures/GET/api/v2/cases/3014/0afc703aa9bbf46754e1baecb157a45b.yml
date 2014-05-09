@@ -1,0 +1,12 @@
+---
+request: "GET /api/v2/cases/3014 HTTP/1.1\r\nAccept: */*\r\nHost: devel.desk.com\r\nConnection:
+  close\r\nAccept-encoding: gzip, deflate\r\nUser-Agent: Desk.com API Client\r\n\r\n"
+response: "HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nCache-Control: must-revalidate,
+  private, max-age=0\r\nContent-Type: application/json; charset=utf-8\r\nDate: Thu,
+  08 May 2014 22:00:14 GMT\r\nETag: \"92dbc7f07d262c8f9d50eadf704fc87c\"\r\nStatus:
+  200 OK\r\nVary: X-AppVersion\r\nX-AppVersion: 15.99\r\nX-Frame-Options: SAMEORIGIN\r\nX-Rate-Limit-Limit:
+  180\r\nX-Rate-Limit-Remaining: 178\r\nX-Rate-Limit-Reset: 46\r\nX-Request-Id: 35f8f9227ee9ee5f257729877fef46d8\r\nContent-Length:
+  1515\r\nConnection: Close\r\n\r\n{\"id\":3014,\"external_id\":\"\",\"blurb\":null,\"subject\":\"Testing
+  Quick Case\",\"priority\":8,\"locked_until\":null,\"description\":\"Some additional
+  Description regarding this email.\",\"status\":\"resolved\",\"type\":\"email\",\"labels\":[],\"label_ids\":[],\"language\":\"de\",\"active_at\":\"2013-05-10T19:08:27Z\",\"created_at\":\"2013-05-10T19:08:10Z\",\"updated_at\":\"2013-09-10T21:34:34Z\",\"received_at\":null,\"first_opened_at\":null,\"opened_at\":null,\"first_resolved_at\":\"2013-05-10T19:08:10Z\",\"resolved_at\":\"2013-05-10T19:08:10Z\",\"custom_fields\":{\"my_new_custom_field\":null,\"my_new_number_field\":null,\"my_new_date_field\":null,\"my_new_boolean_field\":null,\"my_new_list_field\":null,\"follow_up\":null,\"dependent\":null},\"_links\":{\"self\":{\"href\":\"/api/v2/cases/3014\",\"class\":\"case\"},\"message\":{\"href\":\"/api/v2/cases/3014/message\",\"class\":\"email\"},\"customer\":{\"href\":\"/api/v2/customers/176573942\",\"class\":\"customer\"},\"labels\":{\"href\":\"/api/v2/cases/3014/labels\",\"class\":\"label\"},\"assigned_user\":null,\"assigned_group\":null,\"locked_by\":null,\"history\":{\"href\":\"/api/v2/cases/3014/history\",\"class\":\"history\"},\"case_links\":{\"href\":\"/api/v2/cases/3014/links\",\"class\":\"case_link\"},\"macro_preview\":{\"href\":\"/api/v2/cases/3014/macros/preview\",\"class\":\"macro_preview\"},\"replies\":{\"href\":\"/api/v2/cases/3014/replies\",\"class\":\"reply\",\"count\":0},\"draft\":{\"href\":\"/api/v2/cases/3014/replies/draft\",\"class\":\"reply\"},\"notes\":{\"href\":\"/api/v2/cases/3014/notes\",\"class\":\"note\",\"count\":0},\"attachments\":{\"href\":\"/api/v2/cases/3014/attachments\",\"class\":\"attachment\",\"count\":0}}}"
+...

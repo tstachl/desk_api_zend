@@ -1,0 +1,13 @@
+---
+request: "GET /api/v2/customers/34290812 HTTP/1.1\r\nAccept: */*\r\nHost: devel.desk.com\r\nConnection:
+  close\r\nAccept-encoding: gzip, deflate\r\nUser-Agent: Desk.com API Client\r\n\r\n"
+response: "HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nCache-Control: must-revalidate,
+  private, max-age=0\r\nContent-Type: application/json; charset=utf-8\r\nDate: Fri,
+  09 May 2014 05:42:42 GMT\r\nETag: \"0b940c98de7174456bbe56f4df34f10e\"\r\nStatus:
+  200 OK\r\nVary: X-AppVersion\r\nX-AppVersion: 15.99\r\nX-Frame-Options: SAMEORIGIN\r\nX-Rate-Limit-Limit:
+  180\r\nX-Rate-Limit-Remaining: 178\r\nX-Rate-Limit-Reset: 18\r\nX-Request-Id: 827128d3f03067c98445f8018b242e9c\r\nContent-Length:
+  906\r\nConnection: Close\r\n\r\n{\"id\":34290812,\"first_name\":\"Alex\",\"last_name\":\"Bard\",\"company\":\"Desk.com\",\"title\":\"CEO\",\"external_id\":null,\"background\":\"Wowing
+  customer\",\"language\":null,\"locked_until\":null,\"created_at\":\"2012-06-06T14:51:30Z\",\"updated_at\":\"2014-05-09T05:42:41Z\",\"custom_fields\":{\"my_custom_field\":null,\"my_number_field\":\"0\",\"my_boolean_field\":false,\"my_date_field\":null,\"my_list_field\":\"Option
+  1\",\"magento_id\":null},\"emails\":[{\"type\":\"work\",\"value\":\"support@desk.com\"}],\"phone_numbers\":[{\"type\":\"other\",\"value\":\"(415)
+  555-4321\"},{\"type\":\"home\",\"value\":\"(415) 555-1234\"}],\"addresses\":[],\"_links\":{\"self\":{\"href\":\"/api/v2/customers/34290812\",\"class\":\"customer\"},\"locked_by\":null,\"company\":{\"href\":\"/api/v2/companies/138963\",\"class\":\"company\"},\"facebook_user\":null,\"twitter_user\":{\"href\":\"/api/v2/twitter_users/2887203\",\"class\":\"twitter_user\"},\"cases\":{\"href\":\"/api/v2/customers/34290812/cases\",\"class\":\"case\",\"count\":147}}}"
+...

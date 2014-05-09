@@ -1,0 +1,11 @@
+---
+request: "POST /api/v2/topics HTTP/1.1\r\nAccept: */*\r\nHost: devel.desk.com\r\nConnection:
+  close\r\nAccept-encoding: gzip, deflate\r\nContent-Type: application/json\r\nUser-Agent:
+  Desk.com API Client\r\nContent-Length: 24\r\n\r\n{\"subject\":\"Test Topic\"}"
+response: "HTTP/1.1 422 Unprocessable Entity\r\nAccept-Ranges: bytes\r\nCache-Control:
+  no-cache\r\nContent-Type: application/json; charset=utf-8\r\nDate: Fri, 09 May 2014
+  04:03:00 GMT\r\nStatus: 422 Unprocessable Entity\r\nVary: X-AppVersion\r\nX-AppVersion:
+  15.99\r\nX-Frame-Options: SAMEORIGIN\r\nX-Rate-Limit-Limit: 180\r\nX-Rate-Limit-Remaining:
+  179\r\nX-Rate-Limit-Reset: 60\r\nX-Request-Id: 8329af8a627ec7d0e8c311135532182b\r\nContent-Length:
+  59\r\nConnection: Close\r\n\r\n{\"message\":\"Validation Failed\",\"errors\":{\"name\":[\"blank\"]}}"
+...

@@ -1,0 +1,9 @@
+---
+request: "DELETE /api/v2/topics/655435 HTTP/1.1\r\nAccept: */*\r\nHost: devel.desk.com\r\nConnection:
+  close\r\nAccept-encoding: gzip, deflate\r\nUser-Agent: Desk.com API Client\r\n\r\n"
+response: "HTTP/1.1 204 No Content\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache\r\nDate:
+  Thu, 08 May 2014 22:01:07 GMT\r\nStatus: 204 No Content\r\nVary: X-AppVersion\r\nX-AppVersion:
+  15.99\r\nX-Frame-Options: SAMEORIGIN\r\nX-Rate-Limit-Limit: 180\r\nX-Rate-Limit-Remaining:
+  179\r\nX-Rate-Limit-Reset: 53\r\nX-Request-Id: e2a6bc6c2e0a18362e2b96b4dc435f20\r\nConnection:
+  Close\r\n\r\n"
+...
